@@ -8,6 +8,7 @@ class MemeGeneratorApplicationTests {
 
 	@Test
 	void contextLoads() {
+		throw new RuntimeException("only test");
 	}
 
 }
