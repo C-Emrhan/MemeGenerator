@@ -1,1 +1,1 @@
-java -Dserver.port=35716 $JAVA_OPTS -jar build/libs/*.jar
+web: java -jar target/MemeGenerator-0.0.1-SNAPSHOT.jar
