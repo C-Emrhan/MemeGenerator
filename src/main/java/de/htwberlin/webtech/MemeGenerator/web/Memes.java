@@ -8,20 +8,22 @@ import javax.persistence.Table;
 @Table
 public class Memes {
     @Id
-    private Long id;
+    private String id;
+    private String name;
     private String url;
 
     public Memes() {
 
     }
 
-    public Memes(Long id, String url) {
+    public Memes(String id, String name, String url) {
         this.id = id;
+        this.name = name;
         this.url = url;
     }
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -29,7 +31,7 @@ public class Memes {
         return url;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -37,11 +39,5 @@ public class Memes {
         this.url = url;
     }
 
-    @Override
-    public String toString() {
-        return "Memes{" +
-                "id=" + id +
-                ", url='" + url + '\'' +
-                '}';
-    }
+
 }

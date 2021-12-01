@@ -13,7 +13,7 @@ public class MemesConfig {
     CommandLineRunner commandLineRunner(MemeRepository repository){
         return args -> {
             Memes m1 = new Memes(
-                   2L, "testURL"
+                   "2L","Hallo", "testURL"
             );
 
             repository.saveAll(List.of(m1));
