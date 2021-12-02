@@ -1,6 +1,8 @@
-package de.htwberlin.webtech.MemeGenerator.web;
+package de.htwberlin.webtech.MemeGenerator.service;
 
 
+import de.htwberlin.webtech.MemeGenerator.database.MemeRepository;
+import de.htwberlin.webtech.MemeGenerator.web.Memes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

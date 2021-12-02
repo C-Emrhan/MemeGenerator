@@ -1,4 +1,4 @@
-package de.htwberlin.webtech.MemeGenerator.web;
+package de.htwberlin.webtech.MemeGenerator.API;
 
 import lombok.Data;
 

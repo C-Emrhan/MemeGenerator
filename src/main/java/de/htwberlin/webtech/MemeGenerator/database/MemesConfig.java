@@ -1,5 +1,7 @@
-package de.htwberlin.webtech.MemeGenerator.web;
+package de.htwberlin.webtech.MemeGenerator.database;
 
+import de.htwberlin.webtech.MemeGenerator.database.MemeRepository;
+import de.htwberlin.webtech.MemeGenerator.web.Memes;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
