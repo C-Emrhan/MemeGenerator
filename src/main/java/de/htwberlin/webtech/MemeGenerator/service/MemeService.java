@@ -1,10 +1,10 @@
 package de.htwberlin.webtech.MemeGenerator.service;
 
-
 import de.htwberlin.webtech.MemeGenerator.API.CaptionResponse;
 import de.htwberlin.webtech.MemeGenerator.API.MemeCaptionRequest;
 import de.htwberlin.webtech.MemeGenerator.API.MemeResponse;
 import de.htwberlin.webtech.MemeGenerator.database.MemeRepository;
+import de.htwberlin.webtech.MemeGenerator.web.CreatedMeme;
 import de.htwberlin.webtech.MemeGenerator.web.Memes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,8 +30,8 @@ public class MemeService {
         this.restTemplate = restTemplate;
     }
 
-    public List<Memes> getMemes(){
-     return memeRepository.findAll();
+    public List<CreatedMeme> getMemes(){
+        return memeRepository.findAll();
     }
 
     public List<Memes> fetchTemplates() {
@@ -40,7 +40,7 @@ public class MemeService {
         return memeResponse != null? memeResponse.getData().getMemes() : Collections.emptyList();
     }
 
-    public HashMap<String, String> captionMeme( MemeCaptionRequest captionRequest) {
+    public HashMap<String, String> captionMeme(MemeCaptionRequest captionRequest) {
         final String url = "https://api.imgflip.com/caption_image?text0="+captionRequest.getTx0()+"&text1="
                 +captionRequest.getTx1()+"&username=" + captionRequest.getUsername() + "&password="
                 + captionRequest.getPassword() + "&template_id=" + captionRequest.getId();
