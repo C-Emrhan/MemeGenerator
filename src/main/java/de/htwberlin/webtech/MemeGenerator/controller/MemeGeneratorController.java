@@ -3,17 +3,16 @@ package de.htwberlin.webtech.MemeGenerator.controller;
 import de.htwberlin.webtech.MemeGenerator.service.MemeService;
 import de.htwberlin.webtech.MemeGenerator.API.MemeCaptionRequest;
 import de.htwberlin.webtech.MemeGenerator.web.Memes;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/")
 public class MemeGeneratorController {
 
     private final MemeService memeService;
@@ -22,14 +21,13 @@ public class MemeGeneratorController {
         this.memeService = memeService;
     }
 
-    @GetMapping("memetemplates")
+    @GetMapping("/api/v1/memetemplates")
     public List<Memes> fetchMemeTemplates() {
         return memeService.fetchTemplates();
     }
 
-    @GetMapping("caption")
+    @PostMapping("/api/v1/caption")
     public HashMap<String, String> createCaptions(@RequestBody MemeCaptionRequest request) {
         return memeService.captionMeme(request);
     }
-
 }
