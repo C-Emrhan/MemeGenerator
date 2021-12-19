@@ -1,7 +1,10 @@
 <template>
   <div class="home">
-    <body style="background-color: black; background-image: url('https://static.wixstatic.com/media/7aa6cb_cd2a799f9d234b168ad2ac03cdb9da97~mv2.png/v1/fill/w_2135,h_1166,al_c,q_95,usm_0.66_1.00_0.01/7aa6cb_cd2a799f9d234b168ad2ac03cdb9da97~mv2.webp'); background-size: cover;">
-    <img alt="nano" src="../assets/nano.png" style="position: relative; bottom: 100px">
+    <body style="background-color: black">
+    <div class="mm-text-wrap"><textarea placeholder="Text #2" id="tx0" class="mm-text" style="height: 44px; position: absolute;
+       left: 535px; bottom: 300px"></textarea></div>
+    <div class="mm-text-wrap"><textarea placeholder="Text #2" id="tx1" class="mm-text" style="height: 44px; position: absolute;
+      left: 535px; bottom: 245px"></textarea></div>
     </body>
   </div>
 </template>
