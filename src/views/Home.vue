@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <body style="background-color: black">
+    <body>
     <div>
       <img id="loadingImage" width="350" height="350" src="" alt="" style="visibility:hidden; position: absolute; right: 280px; bottom: 60px"/>
     </div>
@@ -10,17 +10,25 @@
     <div class="mm-text-wrap"><textarea placeholder="Text #2" id="tx1" class="mm-text" style="height: 44px; position: absolute;
       left: 535px; bottom: 245px"></textarea></div>
     <div>&nbsp;</div>
-    <div>&nbsp;</div>
     <div id="slide" style="position: absolute; left: 250px; bottom: 35px">
       <div v-for="meme in memes" :key="meme.id">
         <input type="image" :src="meme.url" v-on:click="seephoto(meme)" width="170" height="170">
       </div>
     </div>
+    <div>&nbsp;</div>
     <div>
       <button style="position: absolute; left: 535px; bottom: 190px" type="button" class="btn btn-primary" id="btn" v-on:click="test">Generate</button>
       &nbsp;
       <button style="position: absolute; left: 640px; bottom: 190px" type="button" class="btn btn-secondary" v-on:click="resetpage">Reset</button>
     </div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
     </body>
   </div>
 </template>
@@ -86,4 +94,12 @@ export default {
 </script>
 
 <style>
+#slide {
+  width: 200px;
+  margin: 0 auto;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  white-space: nowrap;
+}
 </style>
