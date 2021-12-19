@@ -1,6 +1,10 @@
 <template>
   <div class="home">
     <body style="background-color: black">
+    <div>
+      <img id="loadingImage" width="350" height="350" src="" alt="" style="visibility:hidden; position: absolute; right: 280px; bottom: 60px"/>
+    </div>
+    <div>&nbsp;</div>
     <div class="mm-text-wrap"><textarea placeholder="Text #2" id="tx0" class="mm-text" style="height: 44px; position: absolute;
        left: 535px; bottom: 300px"></textarea></div>
     <div class="mm-text-wrap"><textarea placeholder="Text #2" id="tx1" class="mm-text" style="height: 44px; position: absolute;
@@ -42,6 +46,41 @@ export default {
         this.memes.push(memes)
       }))
       .catch(error => console.log('error', error))
+  },
+  methods: {
+    resetpage: function () {
+      window.location.reload()
+    },
+    seephoto: function (str) {
+      document.getElementById('loadingImage').style.visibility = 'visible'
+      document.getElementById('loadingImage').src = str.url
+      document.getElementById('loadingImage').alt = str.id
+    },
+    test: function () {
+      const myHeaders = new Headers()
+      myHeaders.append('Content-Type', 'application/json')
+      const raw = JSON.stringify({
+        tx0: document.getElementById('tx0').value,
+        tx1: document.getElementById('tx1').value,
+        id: document.getElementById('loadingImage').alt,
+        username: 'banana222',
+        password: 'provaprova'
+      })
+
+      const requestOptions1 = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      }
+      const endpoint1 = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/caption'
+      fetch(endpoint1, requestOptions1)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('loadingImage').src = data.url
+        })
+        .catch(error => console.log('error', error))
+    }
   }
 }
 </script>
