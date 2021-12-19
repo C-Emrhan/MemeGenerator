@@ -8,6 +8,7 @@
     <div>&nbsp;</div>
     <div>
       <button style="position: absolute; left: 535px; bottom: 190px" type="button" class="btn btn-primary" id="btn" v-on:click="test">Generate</button>
+      &nbsp;
       <button style="position: absolute; left: 640px; bottom: 190px" type="button" class="btn btn-secondary" v-on:click="resetpage">Reset</button>
     </div>
     </body>
