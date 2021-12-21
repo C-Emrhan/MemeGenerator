@@ -2,7 +2,11 @@
   <div class="home">
     <body>
     <div>
-      <img id="loadingImage" width="350" height="350" src="" alt="" style="visibility:hidden; position: absolute; right: 280px; bottom: 60px"/>
+      <h1 id="h1">Meme Generator</h1>
+      <h2 id="h2">by Caner and Emirhan</h2>
+    </div>
+    <div>
+      <img id="loadingImage" width="350" height="350" src="https://i.imgflip.com/5yp3sr.jpg" alt="" style="position: absolute; right: 280px; bottom: 90px"/>
     </div>
     <div>&nbsp;</div>
     <div class="mm-text-wrap"><textarea placeholder="Text #2" id="tx0" class="mm-text" style="height: 44px; position: absolute;
@@ -10,7 +14,7 @@
     <div class="mm-text-wrap"><textarea placeholder="Text #2" id="tx1" class="mm-text" style="height: 44px; position: absolute;
       left: 535px; bottom: 245px"></textarea></div>
     <div>&nbsp;</div>
-    <div id="slide" style="position: absolute; left: 250px; bottom: 35px">
+    <div id="slide" style="position: absolute; left: 250px; bottom: 70px">
       <div v-for="meme in memes" :key="meme.id">
         <input type="image" :src="meme.url" v-on:click="seephoto(meme)" width="170" height="170">
       </div>
@@ -114,5 +118,25 @@ export default {
   overflow-x: hidden;
   overflow-y: scroll;
   white-space: nowrap;
+}
+#h2{
+  font-size: 50px;
+  font-family: "Bauhaus 93";
+  color: white;
+  position: absolute;
+  right: 475px;
+  top: 210px;
+}
+#h1 {
+  font-size: 100px;
+  font-family: "Bauhaus 93";
+  color: white;
+  position: absolute;
+  right: 350px;
+  top: 100px;
+}
+body{
+  background-image: url('https://wallpapercave.com/wp/wp6402819.jpg');
+  background-size: cover;
 }
 </style>

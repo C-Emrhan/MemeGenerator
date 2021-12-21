@@ -1,10 +1,10 @@
 <template>
-<h1>Discover Memes</h1>
   <body>
-  <div id="slide" style="position: absolute; left: 250px; bottom: 35px">
-    <div v-for="createdMeme in createdMemes" :key="createdMeme.id">
-      <input type="image" :src="createdMeme.url" width="170" height="170">
-    </div>
+  <h1 id="h1">Discover Your Memes</h1>
+  <div id="slide">
+    <span v-for="createdMeme in createdMemes" :key="createdMeme.id">
+      <input type="image" :src="createdMeme.url" width="300" height="300">
+    </span>
   </div>
   </body>
 </template>
@@ -34,5 +34,23 @@ export default {
 </script>
 
 <style scoped>
-
+#h1 {
+  font-size: 100px;
+  font-family: "Bauhaus 93";
+  color: white;
+  position: absolute;
+  right: 260px;
+  top: 100px;
+}
+#slide {
+  width: 1000px;
+  margin: 0 auto;
+  height: 319px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  position: absolute;
+  right: 220px;
+  top: 350px;
+}
 </style>
