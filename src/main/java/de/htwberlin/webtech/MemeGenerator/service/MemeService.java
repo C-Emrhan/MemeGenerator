@@ -40,6 +40,10 @@ public class MemeService {
         return memeResponse != null? memeResponse.getData().getMemes() : Collections.emptyList();
     }
 
+    public List<CreatedMeme> displayMemes (){
+        return memeRepository.findAll();
+    }
+
     public HashMap<String, String> captionMeme(MemeCaptionRequest captionRequest) {
         final String url = "https://api.imgflip.com/caption_image?text0="+captionRequest.getTx0()+"&text1="
                 +captionRequest.getTx1()+"&username=" + captionRequest.getUsername() + "&password="

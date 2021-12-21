@@ -2,6 +2,7 @@ package de.htwberlin.webtech.MemeGenerator.controller;
 
 import de.htwberlin.webtech.MemeGenerator.service.MemeService;
 import de.htwberlin.webtech.MemeGenerator.API.MemeCaptionRequest;
+import de.htwberlin.webtech.MemeGenerator.web.CreatedMeme;
 import de.htwberlin.webtech.MemeGenerator.web.Memes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,11 @@ public class MemeGeneratorController {
     @GetMapping("/api/v1/memetemplates")
     public List<Memes> fetchMemeTemplates() {
         return memeService.fetchTemplates();
+    }
+
+    @GetMapping("/api/v1/created")
+    public List<CreatedMeme> getMemes(){
+        return memeService.displayMemes();
     }
 
     @PostMapping("/api/v1/caption")
