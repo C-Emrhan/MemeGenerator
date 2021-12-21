@@ -46,8 +46,11 @@ public class MemeService {
                 + captionRequest.getPassword() + "&template_id=" + captionRequest.getId();
 
         final ResponseEntity<CaptionResponse> response = restTemplate.postForEntity(url, new LinkedMultiValueMap<>(), CaptionResponse.class);
+        CreatedMeme createdMeme = new CreatedMeme();
+        createdMeme.setUrl(response.getBody().getData().get("url"));
         if (response.getBody() != null) {
             System.out.println(response.getBody().getError_message());
+            memeRepository.save(createdMeme);
             return response.getBody().getData();
         } else throw new ResponseStatusException(HttpStatus.NO_CONTENT);
     }
