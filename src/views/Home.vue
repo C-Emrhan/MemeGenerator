@@ -21,7 +21,7 @@
     </div>
     <div>&nbsp;</div>
     <div>
-      <button style="position: absolute; left: 535px; bottom: 190px" type="button" class="btn btn-primary" id="btn" v-on:click="test">Generate</button>
+      <button style="position: absolute; left: 535px; bottom: 190px" type="button" class="btn btn-primary" id="btn" v-on:click="createMeme">Generate</button>
       &nbsp;
       <button style="position: absolute; left: 640px; bottom: 190px" type="button" class="btn btn-secondary" v-on:click="resetpage">Reset</button>
     </div>
@@ -46,32 +46,6 @@ export default {
       createdMemes: []
     }
   },
-  mounted () {
-    const requestOptions2 = {
-      method: 'GET',
-      redirect: 'follow'
-    }
-    const endpoint2 = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/created'
-    fetch(endpoint2, requestOptions2)
-      .then(response => response.json())
-      .then(result => result.forEach(createdMemes => {
-        this.createdMemes.push(createdMemes)
-      }))
-      .catch(error => console.log('error', error))
-
-    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/memetemplates'
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    }
-
-    fetch(endpoint, requestOptions)
-      .then(response => response.json())
-      .then(result => result.forEach(memes => {
-        this.memes.push(memes)
-      }))
-      .catch(error => console.log('error', error))
-  },
   methods: {
     resetpage: function () {
       window.location.reload()
@@ -81,7 +55,7 @@ export default {
       document.getElementById('loadingImage').src = str.url
       document.getElementById('loadingImage').alt = str.id
     },
-    test: function () {
+    createMeme: function () {
       const myHeaders = new Headers()
       myHeaders.append('Content-Type', 'application/json')
       const raw = JSON.stringify({
@@ -106,6 +80,35 @@ export default {
         })
         .catch(error => console.log('error', error))
     }
+  },
+  mounted () {
+    this.resetpage()
+    this.seephoto()
+    this.createMeme()
+    const requestOptions2 = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+    const endpoint2 = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/created'
+    fetch(endpoint2, requestOptions2)
+      .then(response => response.json())
+      .then(result => result.forEach(createdMemes => {
+        this.createdMemes.push(createdMemes)
+      }))
+      .catch(error => console.log('error', error))
+
+    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/memetemplates'
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+
+    fetch(endpoint, requestOptions)
+      .then(response => response.json())
+      .then(result => result.forEach(memes => {
+        this.memes.push(memes)
+      }))
+      .catch(error => console.log('error', error))
   }
 }
 </script>
